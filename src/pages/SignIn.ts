@@ -32,7 +32,7 @@ class SignIn {
         loginForm.addEventListener('submit', (e) =>{
             e.preventDefault()
             const username =  document.querySelector('#username') as HTMLInputElement;
-            User.setName(username.value)
+            User.setName<string>(username.value)
             window.location.hash = '/play'
         })
     }

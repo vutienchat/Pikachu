@@ -5,13 +5,13 @@ import PlayPokemonPage from "./pages/PlayPokemonPage";
 import SignIn from "./pages/SignIn";
 import { parseRequestUrl } from "./utils";
 interface RoterInterface{
-    [index:string]: object
+    [index:string]: any
 }
-const routers ={
+const routers:RoterInterface ={
     "/": SignIn,
     "/play": PlayPokemonPage
 } 
-const router = async() => {
+const router = async()=>{
     const {resource, id} = parseRequestUrl()
     const parseUrl = (resource ? `/${resource}` : `/`) + (id ? `/:id` : '');
     const page = routers[parseUrl] ? routers[parseUrl] : Error404Page;
